@@ -27,9 +27,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #333;
+  background-color: #fff;
   color: white;
-  width: 100vw;
+  width: 100%;
 }
 
 .logo {
@@ -49,7 +49,7 @@ export default {
 }
 
 .nav-links a {
-  color: white;
+  color: #000;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
