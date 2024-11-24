@@ -1,21 +1,20 @@
 <template>
   <header class="header">
-    <div class="logo">
-      <img src="https://img.wine.com.br/logo/wine/black/wine.svg" alt="Logo" />
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">Sobre</a></li>
-          <li><a href="/contact">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
+    <div class="container">
+      <div class="logo-icon">
+        <p>E-commerce</p>
+      </div>
 
+      <div class="cart-wrapper">
+        <div class="cart">
+          <img class="cart-img" src="../assets/logo.svg" alt="cart icon" />
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <script lang="ts">
-
 export default {
   name: 'AppHeader',
 }
@@ -27,35 +26,48 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #fff;
+  background-color: #121214;
   color: white;
+  width: 95%;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+.container {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
-.logo {
+.container .logo-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cart-wrapper {
+}
+
+.cart-wrapper .cart {
+  background: #202024;
+  padding: 12px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
 }
 
-.logo img {
-  height: 40px;
-  margin-right: 10px;
+.cart-wrapper .cart:hover {
+  filter: brightness(1.5);
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links a {
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ff6f61;
+.cart-wrapper .cart .cart-img {
+  width: 24px;
+  height: auto;
 }
 </style>
