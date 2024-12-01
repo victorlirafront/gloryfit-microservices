@@ -19,7 +19,7 @@
 
 <script lang="ts">
 
-import Checkout from '../checkout/Checkout.vue';
+import Checkout from '../checkout/checkout.vue';
 
 export default {
   name: 'AppHeader',
