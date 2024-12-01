@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <Checkout v-if="isCheckoutVisible" class="checkout" />
+      <Checkout v-if="isCheckoutVisible" class="checkout" @closeCheckout="closeCheckout" />
 
     </div>
   </header>
@@ -35,6 +35,9 @@ export default {
   methods: {
     toggleCheckout() {
       this.isCheckoutVisible = !this.isCheckoutVisible;
+    },
+    closeCheckout() {
+      this.isCheckoutVisible = false;
     },
   },
 };

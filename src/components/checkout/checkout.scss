@@ -1,9 +1,21 @@
 .checkout {
-  width: 300px;
-  height: 300px;
-  border: 1px solid red;
-  background: #000;
+  width: 570px;
+  height: 100vh;
+  background-color: #121214;
   position: absolute;
   right: 0;
-  top: 100px;
+  top: 0;
+  padding: 2rem 3rem;
+
+  .close-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    .close {
+      cursor: pointer;
+      padding: 10px;
+    }
+  }
 }
