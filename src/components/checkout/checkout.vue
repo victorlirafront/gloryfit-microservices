@@ -1,7 +1,7 @@
 <template>
   <div class="checkout">
     <div class="close-wrapper">
-      <p>Carrinho de compras</p>
+      <p class="close-wrapper__label">Carrinho de compras</p>
       <img
         class="close"
         src="../../assets/close-btn.svg"
