@@ -1,17 +1,17 @@
 <template>
   <header class="header">
-    <div class="container">
+    <div class="header__container">
       <div class="logo-icon">
         <p>E-commerce</p>
       </div>
 
-      <div class="cart-wrapper" @click="toggleCheckout">
-        <div class="cart" ref="cartText">
-          <img class="cart-img" src="../../assets/logo.svg" alt="cart icon" />
+      <div class="header__cart-wrapper" @click="toggleCheckout">
+        <div class="header__cart" ref="cartText">
+          <img class="header__cart-img" src="../../assets/logo.svg" alt="cart icon" />
         </div>
       </div>
 
-      <Checkout v-if="isCheckoutVisible" class="checkout" @closeCheckout="closeCheckout" />
+      <Checkout v-if="isCheckoutVisible" class="header__checkout" @closeCheckout="closeCheckout" />
 
     </div>
   </header>
