@@ -7,19 +7,18 @@
 
       <div class="header__cart-wrapper" @click="toggleCheckout">
         <div class="header__cart" ref="cartText">
-          <img class="header__cart-img" src="../../assets/logo.svg" alt="cart icon" />
+          <img class="header__cart-img" :src="IMAGES.LOGO" alt="cart icon" />
         </div>
       </div>
 
       <Checkout v-if="isCheckoutVisible" class="header__checkout" @closeCheckout="closeCheckout" />
-
     </div>
   </header>
 </template>
 
 <script lang="ts">
-
 import Checkout from '../checkout/checkout.vue';
+import { IMAGES } from '@/constants/images';
 
 export default {
   name: 'AppHeader',
@@ -31,7 +30,11 @@ export default {
       isCheckoutVisible: false,
     };
   },
-
+  computed: {
+    IMAGES() {
+      return IMAGES;
+    },
+  },
   methods: {
     toggleCheckout() {
       this.isCheckoutVisible = !this.isCheckoutVisible;
