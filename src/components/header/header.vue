@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import Checkout from '../checkout/checkout.vue';
-import { IMAGES } from '@/constants/images';
+import Checkout from '../checkout/checkout.vue'
+import { IMAGES } from '@/constants/images'
 
 export default {
   name: 'AppHeader',
@@ -28,22 +28,22 @@ export default {
   data() {
     return {
       isCheckoutVisible: false,
-    };
+    }
   },
   computed: {
     IMAGES() {
-      return IMAGES;
+      return IMAGES
     },
   },
   methods: {
     toggleCheckout() {
-      this.isCheckoutVisible = !this.isCheckoutVisible;
+      this.isCheckoutVisible = !this.isCheckoutVisible
     },
     closeCheckout() {
-      this.isCheckoutVisible = false;
+      this.isCheckoutVisible = false
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
