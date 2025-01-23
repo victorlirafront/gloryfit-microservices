@@ -5,7 +5,9 @@ import AppFooter from './components/footer/footer.vue'
 
 <template>
   <AppHeader />
-  <main></main>
+  <main>
+    <h1 class="text-3xl font-bold text-white underline">Hello world!</h1>
+  </main>
   <AppFooter />
 </template>
 
