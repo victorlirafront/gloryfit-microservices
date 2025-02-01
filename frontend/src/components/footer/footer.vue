@@ -6,7 +6,7 @@
 
 <script lang="ts">
 export default {
-  name: 'AppFooter'
+  name: 'AppFooter',
 }
 </script>
 

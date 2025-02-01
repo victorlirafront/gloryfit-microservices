@@ -2,12 +2,7 @@
   <div class="checkout">
     <div class="close-wrapper">
       <p class="close-wrapper__label">Carrinho de compras</p>
-      <img
-        class="close"
-        src="../../assets/close-btn.svg"
-        alt="close btn"
-        @click="closeCheckout"
-      />
+      <img class="close" src="../../assets/close-btn.svg" alt="close btn" @click="closeCheckout" />
     </div>
   </div>
 </template>
@@ -18,10 +13,10 @@ export default {
   methods: {
     closeCheckout() {
       // Emite um evento chamado 'closeCheckout' para o componente pai
-      this.$emit('closeCheckout');
+      this.$emit('closeCheckout')
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
