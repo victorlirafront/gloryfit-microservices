@@ -24,7 +24,6 @@
 .card {
   background: #fff;
   width: 300px;
-  height: 400px;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -32,6 +31,7 @@
   justify-content: space-between;
   margin: 20px;
   padding: 10px;
+  text-align: center;
 }
 
 .add-to-cart {
@@ -54,4 +54,22 @@
 
 .add-to-cart:hover {
   background-color: #6dab34;
+}
+
+
+.card .title {
+  text-decoration: none;
+  align-items: center;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.card .price {
+  color: #cf4dce;
+  font-weight: 700;
+  font-size: 20px;
 }
