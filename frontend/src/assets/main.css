@@ -28,16 +28,19 @@
 }
 
 .card {
-  background: #fff;
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 20px;
-  padding: 10px;
   text-align: center;
+}
+
+.info {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .add-to-cart {
@@ -51,7 +54,7 @@
   background-color: #7ebc43;
   border-color: #7ebc43;
   color: #fff;
-  margin-top: 8px;
+  margin-top: 10px;
   width: 100%;
   padding: 10px 10px;
   border-radius: 6px;
