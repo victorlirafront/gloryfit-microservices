@@ -32,31 +32,4 @@ const total = computed(() => cart.getTotal()) // Computed para garantir a reativ
   <AppFooter />
 </template>
 
-<style scoped>
-.card-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.card {
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  text-align: center;
-}
-
-button {
-  margin: 10px;
-  padding: 10px;
-  background-color: #2f8b7d;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #ccc;
-}
-</style>
+<style src="./assets/main.css"></style>
