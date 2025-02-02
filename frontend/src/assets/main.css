@@ -1,12 +1,10 @@
 @import './base.css';
 
-
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
 
 #app {
   width: 100vw;
@@ -63,7 +61,6 @@
 .add-to-cart:hover {
   background-color: #6dab34;
 }
-
 
 .card .title {
   text-decoration: none;
