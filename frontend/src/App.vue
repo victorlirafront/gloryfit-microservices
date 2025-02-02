@@ -2,7 +2,7 @@
 import AppHeader from './components/header/header.vue'
 import AppFooter from './components/footer/footer.vue'
 import { useCartStore } from '@/stores/cart'
-import products from './data/mock_products.json';
+import products from './data/mock_products.json'
 
 const cart = useCartStore()
 const { addToCart } = cart
@@ -12,12 +12,17 @@ const { addToCart } = cart
   <AppHeader />
   <main class="main">
     <div class="card-wrapper">
-      <div v-for="(product, index) in products" :key="index" class="card" :class="{ 'available': product.available, 'unavailable': !product.available }">
+      <div
+        v-for="(product, index) in products"
+        :key="index"
+        class="card"
+        :class="{ available: product.available, unavailable: !product.available }"
+      >
         <div class="info">
           <img class="header__cart-img" :src="product.image" alt="cart icon" />
           <p class="title">{{ product.name }}</p>
-            <p class="price">R$ {{ product.price.toFixed(2) }}</p>
-          </div>
+          <p class="price">R$ {{ product.price.toFixed(2) }}</p>
+        </div>
         <button class="add-to-cart" @click="addToCart(product.id)">Adicionar</button>
       </div>
     </div>

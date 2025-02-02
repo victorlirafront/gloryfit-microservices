@@ -12,7 +12,9 @@ export default {
     // Computed para acessar os produtos do carrinho e calcular a quantidade total
     const products = computed(() => cart.products)
     const cartItems = computed(() => cart.cartItems)
-    const quantity = computed(() => cart.cartItems.reduce((total, item) => total + item.quantity!, 0))
+    const quantity = computed(() =>
+      cart.cartItems.reduce((total, item) => total + item.quantity!, 0),
+    )
     const total = computed(() => cart.getTotal())
 
     // Função para fechar o checkout
@@ -26,9 +28,9 @@ export default {
       quantity,
       total,
       closeCheckout,
-      removeFromCart
+      removeFromCart,
     }
-  }
+  },
 }
 </script>
 
@@ -40,12 +42,12 @@ export default {
     </div>
 
     <div class="cart-products">
-      <div v-for="(product, index) in cartItems" :key="index" class="cart-product" >
-        <img :src="product.image" alt="teste" >
+      <div v-for="(product, index) in cartItems" :key="index" class="cart-product">
+        <img :src="product.image" alt="teste" />
         <div class="info-wrapper">
           <p class="product-name">{{ product.name }}</p>
-          <p class="product-price"> R$ {{ product.price }}</p>
-          <p class="remove-product"  @click="removeFromCart(product.id)">Remover</p>
+          <p class="product-price">R$ {{ product.price }}</p>
+          <p class="remove-product" @click="removeFromCart(product.id)">Remover</p>
         </div>
       </div>
     </div>
