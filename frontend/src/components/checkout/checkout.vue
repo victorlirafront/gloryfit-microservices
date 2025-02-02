@@ -8,6 +8,7 @@ export default {
   setup(props, { emit }){
     const cart = useCartStore()
     const products = computed(() => cart.products)
+    const quantity = computed(() => cart.quantity)
     const total = computed(() => cart.getTotal())
 
     const closeCheckout = () => {
@@ -16,6 +17,7 @@ export default {
 
     return {
       products,
+      quantity,
       total,
       closeCheckout
     }
@@ -35,7 +37,7 @@ export default {
         <p>Valor Total</p>
       </div>
       <div class="right-values">
-        <p>2 itens</p>
+        <p>{{ quantity }} itens</p>
         <p>R$ {{ total.toFixed(2) }}</p>
       </div>
     </div>

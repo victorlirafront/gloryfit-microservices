@@ -5,8 +5,9 @@ import AppFooter from './components/footer/footer.vue'
 import { useCartStore } from '@/stores/cart'
 
 const cart = useCartStore()
-const { products, quantity, addToCart, removeFromCart } = cart
+const { products, addToCart, removeFromCart } = cart
 const total = computed(() => cart.getTotal())
+const quantity = computed(() => cart.quantity)
 </script>
 
 <template>

@@ -39,6 +39,6 @@ export const useCartStore = defineStore('cart', {
     },
     getTotal() {
       return this.products.length > 0 ? this.products[0].price * this.quantity : 0
-    },
+    }
   },
 })
