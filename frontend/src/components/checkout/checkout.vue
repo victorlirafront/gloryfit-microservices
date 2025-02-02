@@ -7,6 +7,7 @@ export default {
 
   setup(props, { emit }) {
     const cart = useCartStore()
+    const { removeFromCart } = cart
 
     // Computed para acessar os produtos do carrinho e calcular a quantidade total
     const products = computed(() => cart.products)
@@ -24,7 +25,8 @@ export default {
       cartItems,
       quantity,
       total,
-      closeCheckout
+      closeCheckout,
+      removeFromCart
     }
   }
 }
@@ -43,7 +45,7 @@ export default {
         <div class="info-wrapper">
           <p class="product-name">{{ product.name }}</p>
           <p class="product-price"> R$ {{ product.price }}</p>
-          <p class="remove-product">Remover</p>
+          <p class="remove-product"  @click="removeFromCart(product.id)">Remover</p>
         </div>
       </div>
     </div>

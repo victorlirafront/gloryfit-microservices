@@ -18,9 +18,6 @@ const { cartItems, addToCart, removeFromCart, getTotal } = cart
         <p class="price">R$ {{ product.price.toFixed(2) }}</p>
 
         <button class="add-to-cart" @click="addToCart(product.id)">Adicionar ao Carrinho</button>
-        <button class="remove-from-cart" @click="removeFromCart(product.id)" :disabled="!cartItems.some(item => item.id === product.id)">
-          Remover do Carrinho
-        </button>
       </div>
     </div>
   </main>
