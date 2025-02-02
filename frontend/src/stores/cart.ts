@@ -1,12 +1,21 @@
-// src/stores/cart.ts
 import { defineStore } from 'pinia'
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    product: {
-      name: 'Camiseta Ignite Lab',
-      price: 79.99
-    },
+    products: [
+      {
+        name: 'Camiseta Ignite Lab',
+        price: 79.99
+      },
+      {
+        name: 'Camiseta Ignite Lab',
+        price: 79.99
+      },
+      {
+        name: 'Camiseta Ignite Lab',
+        price: 79.99
+      }
+    ],
     quantity: 1
   }),
   actions: {
@@ -21,7 +30,7 @@ export const useCartStore = defineStore('cart', {
       }
     },
     getTotal() {
-      return this.product.price * this.quantity
+      return this.products.length > 0 ? this.products[0].price * this.quantity : 0
     }
   }
 })
