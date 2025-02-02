@@ -5,18 +5,23 @@ import { computed, defineEmits } from 'vue'
 export default {
   name: 'Checkout',
 
-  setup(props, { emit }){
+  setup(props, { emit }) {
     const cart = useCartStore()
+
+    // Computed para acessar os produtos do carrinho e calcular a quantidade total
     const products = computed(() => cart.products)
-    const quantity = computed(() => cart.cartItems.reduce((total, item) => total + item.quantity, 0))
+    const cartItems = computed(() => cart.cartItems)
+    const quantity = computed(() => cart.cartItems.reduce((total, item) => total + item.quantity!, 0))
     const total = computed(() => cart.getTotal())
 
+    // Função para fechar o checkout
     const closeCheckout = () => {
       emit('closeCheckout')
     }
 
     return {
       products,
+      cartItems,
       quantity,
       total,
       closeCheckout
@@ -31,6 +36,18 @@ export default {
       <p class="close-wrapper__label">Carrinho de compras</p>
       <img class="close" src="../../assets/close-btn.svg" alt="close btn" @click="closeCheckout" />
     </div>
+
+    <div class="cart-products">
+      <div v-for="(product, index) in cartItems" :key="index" class="cart-product" >
+        <img :src="product.image" alt="teste" >
+        <div class="info-wrapper">
+          <p class="product-name">{{ product.name }}</p>
+          <p class="product-price"> R$ {{ product.price }}</p>
+          <p class="remove-product">Remover</p>
+        </div>
+      </div>
+    </div>
+
     <div class="checkout-price-wrapper">
       <div class="left-labels">
         <p>Quantidade</p>
@@ -41,7 +58,7 @@ export default {
         <p>R$ {{ total.toFixed(2) }}</p>
       </div>
     </div>
-    <button class="finish-checkout">Finalizar  Contra</button>
+    <button class="finish-checkout">Finalizar Compra</button>
   </div>
 </template>
 

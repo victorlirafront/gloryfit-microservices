@@ -11,6 +11,11 @@ export const useCartStore = defineStore('cart', {
     addToCart(productId: number) {
       const product = this.products.find(item => item.id === productId);
 
+      if(this.cartItems.find((item) => item.id === productId)){
+        alert("O produto ja existe no carrinho")
+        return
+      }
+
       if (product) {
         const existingProduct = this.cartItems.find(item => item.id === product.id);
         if (existingProduct) {
