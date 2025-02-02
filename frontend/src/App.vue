@@ -12,7 +12,7 @@ const { addToCart } = cart
   <AppHeader />
   <main class="main">
     <div class="card-wrapper">
-      <div v-for="(product, index) in products" :key="index" class="card">
+      <div v-for="(product, index) in products" :key="index" class="card" :class="{ 'available': product.available, 'unavailable': !product.available }">
         <div class="info">
           <img class="header__cart-img" :src="product.image" alt="cart icon" />
           <p class="title">{{ product.name }}</p>

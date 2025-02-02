@@ -86,3 +86,13 @@
   font-weight: 700;
   font-size: 20px;
 }
+
+/* card unavailable */
+.card.unavailable {
+  filter: grayscale();
+}
+
+.card.unavailable .add-to-cart {
+  cursor: not-allowed;
+  filter: grayscale();
+}

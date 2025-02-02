@@ -75,13 +75,17 @@
     align-items: center;
     margin-top: 100px;
 
-    p {
-      text-align: end;
+    .left-labels {
+      p {
+        text-align: start;
+      }
     }
 
-    .left-labels {}
-
-    .right-values {}
+    .right-values {
+      p {
+        text-align: end;
+      }
+    }
   }
 
   .finish-checkout {
