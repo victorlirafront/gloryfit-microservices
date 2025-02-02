@@ -29,7 +29,17 @@ export default {
       <p class="close-wrapper__label">Carrinho de compras</p>
       <img class="close" src="../../assets/close-btn.svg" alt="close btn" @click="closeCheckout" />
     </div>
-    <p>Total: R$ {{ total.toFixed(2) }}</p>
+    <div class="checkout-price-wrapper">
+      <div class="left-labels">
+        <p>Quantidade</p>
+        <p>Valor Total</p>
+      </div>
+      <div class="right-values">
+        <p>2 itens</p>
+        <p>R$ {{ total.toFixed(2) }}</p>
+      </div>
+    </div>
+    <button class="finish-checkout">Finalizar  Contra</button>
   </div>
 </template>
 
