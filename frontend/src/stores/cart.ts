@@ -1,44 +1,44 @@
 import { defineStore } from 'pinia'
-
-const products = [
-  {
-    name: 'Camiseta Ignite Lab',
-    price: 79.99,
-    image:
-      'https://thunder-shop.vercel.app/_next/image?url=https%3A%2F%2Ffiles.stripe.com%2Flinks%2FMDB8YWNjdF8xTVg0RERBMVZLWjlIWjFUfGZsX3Rlc3RfVlJJUTdwNUpsY1R5VmtWYmdRSXNwc2Y100Afouqsdr&w=1080&q=75',
-  },
-  {
-    name: 'Camiseta Ignite Lab',
-    price: 79.99,
-    image:
-      'https://thunder-shop.vercel.app/_next/image?url=https%3A%2F%2Ffiles.stripe.com%2Flinks%2FMDB8YWNjdF8xTVg0RERBMVZLWjlIWjFUfGZsX3Rlc3RfVlJJUTdwNUpsY1R5VmtWYmdRSXNwc2Y100Afouqsdr&w=1080&q=75',
-  },
-  {
-    name: 'Camiseta Ignite Lab',
-    price: 79.99,
-    image:
-      'https://thunder-shop.vercel.app/_next/image?url=https%3A%2F%2Ffiles.stripe.com%2Flinks%2FMDB8YWNjdF8xTVg0RERBMVZLWjlIWjFUfGZsX3Rlc3RfVlJJUTdwNUpsY1R5VmtWYmdRSXNwc2Y100Afouqsdr&w=1080&q=75',
-  },
-]
+import products from '../data/mock_products.json';
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
+    cartItems: [] as { id: number; name: string; price: number; quantity: number; image: string }[],
     products,
-    quantity: 1,
+    quantity: 1
   }),
   actions: {
-    addToCart() {
-      console.log('Adicionando ao carrinho...')
-      this.quantity++
-    },
-    removeFromCart() {
-      if (this.quantity > 0) {
-        console.log('Removendo do carrinho...')
-        this.quantity--
+    addToCart(productId: number) {
+      const product = this.products.find(item => item.id === productId);
+
+      if (product) {
+        const existingProduct = this.cartItems.find(item => item.id === product.id);
+        if (existingProduct) {
+          existingProduct.quantity++;
+        } else {
+          this.cartItems.push({ ...product, quantity: 1 });
+        }
+        console.log('Produto adicionado ao carrinho...');
+      } else {
+        console.log('Produto não encontrado');
       }
     },
+
+    removeFromCart(productId: number) {
+      this.quantity--
+      const productIndex = this.cartItems.findIndex(item => item.id === productId);
+      if (productIndex !== -1) {
+        const item = this.cartItems[productIndex];
+        if (item.quantity > 1) {
+          item.quantity--;
+        } else {
+          this.cartItems.splice(productIndex, 1);
+        }
+      }
+      console.log('Produto removido do carrinho...');
+    },
     getTotal() {
-      return this.products.length > 0 ? this.products[0].price * this.quantity : 0
+      return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     }
   },
-})
+});

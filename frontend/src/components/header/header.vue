@@ -35,7 +35,7 @@ export default {
   },
   setup(){
     const cart = useCartStore()
-    const quantity = computed(() => cart.quantity)
+    const quantity = computed(() => cart.cartItems.reduce((total, item) => total + item.quantity, 0))
 
     return {
       quantity,

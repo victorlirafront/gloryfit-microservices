@@ -8,7 +8,7 @@ export default {
   setup(props, { emit }){
     const cart = useCartStore()
     const products = computed(() => cart.products)
-    const quantity = computed(() => cart.quantity)
+    const quantity = computed(() => cart.cartItems.reduce((total, item) => total + item.quantity, 0))
     const total = computed(() => cart.getTotal())
 
     const closeCheckout = () => {
