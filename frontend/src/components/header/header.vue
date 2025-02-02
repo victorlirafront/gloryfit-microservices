@@ -8,6 +8,7 @@
       <div class="header__cart-wrapper" @click="toggleCheckout">
         <div class="header__cart" ref="cartText">
           <img class="header__cart-img" :src="IMAGES.LOGO" alt="cart icon" />
+          <p class="quantity"> {{ quantity }} </p>
         </div>
       </div>
 
@@ -17,6 +18,8 @@
 </template>
 
 <script lang="ts">
+import { useCartStore } from '@/stores/cart';
+import { computed } from 'vue'
 import Checkout from '../checkout/checkout.vue'
 import { IMAGES } from '@/constants/images'
 
@@ -28,6 +31,14 @@ export default {
   data() {
     return {
       isCheckoutVisible: false,
+    }
+  },
+  setup(){
+    const cart = useCartStore()
+    const quantity = computed(() => cart.quantity)
+
+    return {
+      quantity,
     }
   },
   computed: {

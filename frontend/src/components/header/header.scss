@@ -22,6 +22,7 @@
     }
 
     .header__cart-wrapper {
+      position: relative;
       .header__cart {
         background: #202024;
         padding: 12px;
@@ -47,6 +48,21 @@
           font-size: 14px;
           color: white;
         }
+      }
+
+      .quantity {
+        position: absolute;
+        background: #ff597b;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        top: -5px;
+        right: -5px;
+        font-size: 12px;
       }
     }
   }
