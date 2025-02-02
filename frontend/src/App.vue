@@ -8,8 +8,7 @@ import { computed } from 'vue'
 const cart = useCartStore()
 
 const { product, quantity, addToCart, removeFromCart } = cart
-const total = computed(() => cart.getTotal()) // Aqui, o total está reativo
-console.log("total", total)
+const total = computed(() => cart.getTotal()) // Computed para garantir a reatividade
 
 </script>
 

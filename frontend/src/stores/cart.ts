@@ -7,15 +7,18 @@ export const useCartStore = defineStore('cart', {
       name: 'Camiseta Ignite Lab',
       price: 79.99
     },
-    quantity: 0
+    quantity: 1
   }),
   actions: {
     addToCart() {
-      console.log("casa")
+      console.log("Adicionando ao carrinho...");
       this.quantity++
     },
     removeFromCart() {
-      if (this.quantity > 0) this.quantity--
+      if (this.quantity > 0) {
+        console.log("Removendo do carrinho...");
+        this.quantity--
+      }
     },
     getTotal() {
       return this.product.price * this.quantity
