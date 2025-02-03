@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body{
+  background: #121214;
+}
+
 #app {
   width: 100vw;
   margin: 0 auto;
