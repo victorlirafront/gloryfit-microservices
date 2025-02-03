@@ -3,7 +3,7 @@ export type Product = {
   name: string
   price: number
   quantity: number
-  size?: {
+  size: {
     code: string
     stock: number
   }[]
