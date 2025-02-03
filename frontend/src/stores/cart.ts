@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import products from '../data/mock_products.json'
 import type { Product } from '@/types/product'
+import { calculateProductAvailability } from '@/utils/products'
 
 export const useCartStore = defineStore('cart', {
   state: () => {
@@ -16,6 +17,15 @@ export const useCartStore = defineStore('cart', {
   actions: {
     addToCart(productId: number) {
       const product = this.products.find((item) => item.id === productId)
+
+      if (!product) return
+
+      const productsWithAvailability = calculateProductAvailability([product])
+
+      if (!productsWithAvailability.find(product => product.id === productId)?.available) {
+        alert('O produto não está disponível');
+        return;
+      }
 
       if (this.cartItems.find((item) => item.id === productId)) {
         alert('O produto já existe no carrinho')

@@ -3,11 +3,11 @@ import AppHeader from './components/header/header.vue'
 import AppFooter from './components/footer/footer.vue'
 import { useCartStore } from '@/stores/cart'
 import products from './data/mock_products.json'
-import { calculateProductAvailability } from '@/utils/products';
+import { calculateProductAvailability } from '@/utils/products'
 
 const cart = useCartStore()
 const { addToCart } = cart
-const productsWithAvailability = calculateProductAvailability(products);
+const productsWithAvailability = calculateProductAvailability(products)
 </script>
 
 <template>
@@ -25,7 +25,9 @@ const productsWithAvailability = calculateProductAvailability(products);
           <p class="title">{{ product.name }}</p>
           <p class="price">R$ {{ product.price.toFixed(2) }}</p>
         </div>
-        <button class="add-to-cart" @click="addToCart(product.id)">Adicionar</button>
+        <button class="add-to-cart" @click="addToCart(product.id)">
+          {{ product.available ? 'Adicionar' : 'Indisponível' }}
+        </button>
       </div>
     </div>
   </main>
