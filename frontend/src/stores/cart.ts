@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import products from '../data/mock_products.json'
-import type { Product } from '@/types/product'
+import type { Product } from '@/types/tshirt'
 import { calculateProductAvailability } from '@/utils/products'
 
 export const useCartStore = defineStore('cart', {

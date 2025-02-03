@@ -1,4 +1,4 @@
-import type { Product } from '@/types/product'
+import type { Product } from '@/types/tshirt'
 
 export const calculateProductAvailability = (products: Product[]) => {
   return products.map((product) => {
