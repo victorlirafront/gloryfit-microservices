@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="logo-icon">
-        <p>E-commerce</p>
+        <img class="ancora-logo" :src="IMAGES.ANCORA_LOGO" alt="Ancora logo" />
       </div>
 
       <div class="header__cart-wrapper" @click="toggleCheckout">
