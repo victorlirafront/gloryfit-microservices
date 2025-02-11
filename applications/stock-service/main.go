@@ -1,0 +1,5 @@
+package stockService
+
+func main() {
+
+}
