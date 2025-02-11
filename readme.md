@@ -1,3 +1,4 @@
+```
 📂 ecommerce-monorepo/
 ├── 📁 services/
 │   ├── 📁 catalog-service/ (Gerenciamento de produtos)
@@ -17,3 +18,4 @@
 ├── 📄 go.mod (Gerenciamento de dependências)
 ├── 📄 docker-compose.yml (Para rodar os serviços localmente)
 ├── 📄 README.md
+```
