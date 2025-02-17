@@ -1,5 +1,0 @@
-package apiGateWay
-
-func main() {
-
-}
