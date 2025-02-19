@@ -1,7 +1,7 @@
 <template>
   <main class="login">
     <form class="login__form">
-      <h1 class="login__title-1">Bem vindo ancora store!</h1>
+      <h1 class="login__title-1">Bem vindo Ancora store!</h1>
       <h2 class="login__title-2">Antes de continuar, faça seu login.</h2>
 
       <div class="login__field">
@@ -15,7 +15,10 @@
       </div>
 
       <button class="login__submit" type="submit">Entrar</button>
-      <button class="login__signup" type="submit">Faça seu cadastro</button>
+      <p class="login__ou-text">ou</p>
+      <router-link to="/signup">
+        <button class="login__signup" type="submit">Faça seu cadastro</button>
+      </router-link>
     </form>
   </main>
 </template>
