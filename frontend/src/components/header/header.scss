@@ -28,48 +28,60 @@
       font-weight: bold;
     }
 
-    .header__cart-wrapper {
-      position: relative;
-      .header__cart {
-        background: #202024;
-        padding: 12px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .container-login {
+      display: flex;
+      align-items: center;
+      .login {
+        margin-right: 10px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
         cursor: pointer;
-        transition: filter 0.3s ease-in-out;
-
-        &:hover {
-          filter: brightness(1.5);
-        }
-
-        .header__cart-img {
-          width: 24px;
-          height: auto;
-        }
-
-        .header__cart-message {
-          margin-top: 8px;
-          font-size: 14px;
-          color: white;
-        }
       }
 
-      .quantity {
-        position: absolute;
-        background: #ff597b;
-        color: #fff;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
-        top: -5px;
-        right: -5px;
-        font-size: 12px;
+      .header__cart-wrapper {
+        position: relative;
+        
+        .header__cart {
+          background: #202024;
+          padding: 12px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: filter 0.3s ease-in-out;
+
+          &:hover {
+            filter: brightness(1.5);
+          }
+
+          .header__cart-img {
+            width: 24px;
+            height: auto;
+          }
+
+          .header__cart-message {
+            margin-top: 8px;
+            font-size: 14px;
+            color: white;
+          }
+        }
+
+        .quantity {
+          position: absolute;
+          background: #ff597b;
+          color: #fff;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+          top: -5px;
+          right: -5px;
+          font-size: 12px;
+        }
       }
     }
   }
