@@ -2,13 +2,22 @@
   <header class="header">
     <div class="header__container">
       <div class="logo-icon">
-        <img class="ancora-logo" :src="IMAGES.ANCORA_LOGO" alt="Ancora logo" />
+        <router-link to="/">
+          <img class="ancora-logo" :src="IMAGES.ANCORA_LOGO" alt="Ancora logo" />
+        </router-link>
       </div>
 
-      <div class="header__cart-wrapper" @click="toggleCheckout">
-        <div class="header__cart" ref="cartText">
-          <img class="header__cart-img" :src="IMAGES.LOGO" alt="cart icon" />
-          <p class="quantity">{{ quantity }}</p>
+      <div class="container-login">
+        <div class="login">
+          <p>
+            <router-link to="/login"> Olá, Faça seu login</router-link>
+          </p>
+        </div>
+        <div class="header__cart-wrapper" @click="toggleCheckout">
+          <div class="header__cart" ref="cartText">
+            <img class="header__cart-img" :src="IMAGES.LOGO" alt="cart icon" />
+            <p class="quantity">{{ quantity }}</p>
+          </div>
         </div>
       </div>
 
