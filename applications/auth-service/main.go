@@ -2,11 +2,11 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 
 	"github.com/gin-gonic/gin"
 	"github.com/victorlirafront/ancora/applications/auth-service/database"
+	routes "github.com/victorlirafront/ancora/applications/auth-service/routes/login"
 )
 
 func main() {
@@ -33,8 +33,5 @@ func createRouter(db *sql.DB) *gin.Engine {
 
 func registerRoutes(router *gin.Engine, db *sql.DB) {
 	// Defines the user authentication and registration routes.
-	router.POST("/login", func(c *gin.Context) {
-		fmt.Printf("hit login")
-		fmt.Print("DB", db)
-	})
+	router.POST("/login", routes.Login)
 }
