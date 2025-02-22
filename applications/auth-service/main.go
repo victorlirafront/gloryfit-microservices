@@ -1,9 +1,11 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 
+	"github.com/gin-gonic/gin"
 	"github.com/victorlirafront/ancora/applications/auth-service/database"
 )
 
@@ -11,13 +13,28 @@ func main() {
 	db, err := database.CreateDatabaseConnection()
 
 	if err != nil {
-		//log.Fatalf exibe uma mensagem de erro no log e finaliza o programa com os.Exit(1). No seu caso,
-		// ele informa que houve um erro ao conectar ao banco de dados e encerra a execução.
-		log.Fatalf("Erro ao conectar ao banco de dados: %v", err)
+		// log.Fatalf logs an error message and terminates the program using os.Exit(1).
+		// In this case, it informs that there was an error connecting to the database and stops execution.
+		log.Fatalf("Error connecting to the database: %v", err)
 	}
 
-	// "defer" garante que um código será executado no final, mesmo que tenha erros no me
-	defer db.Close() // Fechará o banco de dados no final da função
+	// "defer" ensures that the code will be executed at the end, even if errors occur.
+	defer db.Close() // Closes the database connection at the end of the function.
 
-	fmt.Println("Servidor rodando em localhost:8080")
+	router := createRouter(db)
+	router.Run(":8080") // Starts the server on port 8080.
+}
+
+func createRouter(db *sql.DB) *gin.Engine {
+	router := gin.Default()
+	registerRoutes(router, db)
+	return router
+}
+
+func registerRoutes(router *gin.Engine, db *sql.DB) {
+	// Defines the user authentication and registration routes.
+	router.POST("/login", func(c *gin.Context) {
+		fmt.Printf("hit login")
+		fmt.Print("DB", db)
+	})
 }
