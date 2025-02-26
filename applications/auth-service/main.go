@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/victorlirafront/ancora/applications/auth-service/database"
+	"github.com/victorlirafront/ancora/applications/auth-service/middlewares"
 	routes "github.com/victorlirafront/ancora/applications/auth-service/routes/login"
 )
 
@@ -22,16 +23,17 @@ func main() {
 	defer db.Close() // Closes the database connection at the end of the function.
 
 	router := createRouter(db)
-	router.Run(":8080") // Starts the server on port 8080.
+	router.Run(":8080")
 }
 
 func createRouter(db *sql.DB) *gin.Engine {
 	router := gin.Default()
+	router.Use(middlewares.DatabaseMiddleware(db))
 	registerRoutes(router, db)
 	return router
 }
 
 func registerRoutes(router *gin.Engine, db *sql.DB) {
-	// Defines the user authentication and registration routes.
+	router.POST("/register", routes.Register)
 	router.POST("/login", routes.Login)
 }
