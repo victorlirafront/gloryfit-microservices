@@ -29,6 +29,7 @@ func main() {
 func createRouter(db *sql.DB) *gin.Engine {
 	router := gin.Default()
 	router.Use(middlewares.DatabaseMiddleware(db))
+	router.Use(middlewares.CORSMiddleware())
 	registerRoutes(router, db)
 	return router
 }
