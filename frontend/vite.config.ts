@@ -21,8 +21,17 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // Não precisamos de additionalData neste caso, então podemos remover
+
       }
     }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './vitest.setup.ts',
+    coverage: {
+      provider: 'c8',
+      reporter: ['text', 'html'],
+    },
   }
 })
