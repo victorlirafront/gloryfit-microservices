@@ -26,7 +26,9 @@ export default defineConfig({
       }
     }
   },
+  // @ts-ignore
   test: vitestDefineConfig({
+    // @ts-ignore
     globals: true,
     environment: 'jsdom',
     setupFiles: './vitest.setup.ts', // Arquivo de configuração do Vitest, se necessário
