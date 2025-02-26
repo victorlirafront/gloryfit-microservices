@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
+import { defineConfig as vitestDefineConfig } from 'vitest/config'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,17 +22,18 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-
+        // Adicionar opções para SCSS aqui, se necessário
       }
     }
   },
-  test: {
+  test: vitestDefineConfig({
     globals: true,
     environment: 'jsdom',
-    setupFiles: './vitest.setup.ts',
+    setupFiles: './vitest.setup.ts', // Arquivo de configuração do Vitest, se necessário
     coverage: {
       provider: 'c8',
       reporter: ['text', 'html'],
     },
-  }
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  })
 })
