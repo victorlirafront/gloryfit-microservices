@@ -34,7 +34,7 @@ func Register(c *gin.Context) {
 	}
 
 	var user models.User
-	err := db.QueryRow("SELECT id, username, HashedPassword FROM users WHERE username = ?", username).
+	err := db.QueryRow("SELECT id, username, hashedpassword FROM users WHERE username = ?", username).
 		Scan(&user.ID, &user.Username, &user.HashedPassword)
 
 	if err == nil {
@@ -53,7 +53,7 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	_, err = db.Exec("INSERT INTO users (username, HashedPassword) VALUES (?, ?)", username, hashedPassword)
+	_, err = db.Exec("INSERT INTO users (username, hashedpassword) VALUES (?, ?)", username, hashedPassword)
 	if err != nil {
 		log.Println("Erro ao registrar usuário:", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to register user"})
