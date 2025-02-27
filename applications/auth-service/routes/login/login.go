@@ -31,7 +31,7 @@ func Login(c *gin.Context) {
 	}
 
 	var user models.User
-	result := db.QueryRow("SELECT id, username, HashedPassword, Role FROM users WHERE username = ?", username)
+	result := db.QueryRow("SELECT id, username, hashedpassword, Role FROM users WHERE username = ?", username)
 	err := result.Scan(&user.ID, &user.Username, &user.HashedPassword, &user.Role)
 	if err == sql.ErrNoRows {
 		c.JSON(http.StatusUnauthorized, gin.H{
@@ -55,7 +55,7 @@ func Login(c *gin.Context) {
 	sessionToken := utils.GenerateToken(32)
 	csrfToken := utils.GenerateToken(32)
 
-	_, err = db.Exec("UPDATE users SET SessionToken = ?, CSRFToken = ? WHERE id = ?", sessionToken, csrfToken, user.ID)
+	_, err = db.Exec("UPDATE users SET sessiontoken = ?, csrftoken = ? WHERE id = ?", sessionToken, csrfToken, user.ID)
 	if err != nil {
 		fmt.Printf("Error executing query: %v\n", err)
 		c.JSON(http.StatusInternalServerError, gin.H{
