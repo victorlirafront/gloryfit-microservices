@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import SingUp from '../src/views//signup/SignUp.vue'
+import SingUp from '../src/views/signup/SignUp.vue'
 
 definePageMeta({
   title: 'SignUp',
