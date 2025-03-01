@@ -125,7 +125,7 @@ export default {
           withCredentials: true,
         })
 
-        this.showToast('Cadastro realizado com sucesso!', '#28a745')
+        this.showToast('Cadastro realizado com sucesso!', '#2ac64e')
         this.$router.push('/login')
       } catch (err) {
         this.showToast('Erro ao cadastrar. Tente novamente.', 'red')
