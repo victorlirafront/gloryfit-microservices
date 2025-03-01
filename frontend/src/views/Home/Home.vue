@@ -1,15 +1,21 @@
 <script lang="ts">
-import { useCartStore } from '../../stores/cart'
-import products from '../../data/mock_products.json'
-import { calculateProductAvailability } from '@/utils/products'
+import { defineComponent } from 'vue'; // Import defineComponent
+import { useCartStore } from '../../stores/cart';
+import products from '../../data/mock_products.json';
+import { calculateProductAvailability } from '@/utils/products';
 
-const cart = useCartStore()
-const { addToCart } = cart
-const productsWithAvailability = calculateProductAvailability(products)
-
-export default {
+export default defineComponent({
   name: 'HomeView',
-}
+  setup() {
+    const cart = useCartStore();
+    const { addToCart } = cart;
+    const productsWithAvailability = calculateProductAvailability(products);
+    return {
+      productsWithAvailability,
+      addToCart,
+    };
+  },
+});
 </script>
 
 <template>
