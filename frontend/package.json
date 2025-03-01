@@ -13,11 +13,6 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "npm run lint"
-    ]
-  },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "axios": "^1.8.1",
