@@ -8,10 +8,12 @@
         <label class="signup__label" for="name">Nome</label>
         <input
           v-model="name"
+          :class="{ 'signup__input--error': errors.name }"
           class="signup__input"
           type="text"
           id="name"
           placeholder="Digite seu nome"
+          @input="clearError('name')"
         />
       </div>
 
@@ -19,10 +21,12 @@
         <label class="signup__label" for="password">Senha</label>
         <input
           v-model="password"
+          :class="{ 'signup__input--error': errors.password }"
           class="signup__input"
           type="password"
           id="password"
           placeholder="Digite sua senha"
+          @input="clearError('password')"
         />
       </div>
 
@@ -30,10 +34,12 @@
         <label class="signup__label" for="password-check">Confirmar Senha</label>
         <input
           v-model="passwordCheck"
+          :class="{ 'signup__input--error': errors.passwordCheck }"
           class="signup__input"
           type="password"
           id="password-check"
           placeholder="Confirme sua senha"
+          @input="clearError('passwordCheck')"
         />
       </div>
 
@@ -57,28 +63,25 @@ export default {
       name: '',
       password: '',
       passwordCheck: '',
+      errors: {
+        name: false,
+        password: false,
+        passwordCheck: false,
+      },
     }
   },
   methods: {
     validateForm() {
-      if (!this.name.trim() || !this.password || !this.passwordCheck) {
-        alert('Por favor, preencha todos os campos!')
-        return false
-      }
+      this.errors.name = !this.name.trim()
+      this.errors.password = this.password.length < 6
+      this.errors.passwordCheck = this.password !== this.passwordCheck
 
-      if (this.password.length < 6) {
-        alert('A senha deve ter pelo menos 6 caracteres!')
-        return false
-      }
-
-      if (this.password !== this.passwordCheck) {
-        alert('As senhas não coincidem!')
-        return false
-      }
-
-      return true
+      return !Object.values(this.errors).includes(true)
     },
-    async handleCreate() {
+    clearError(field: keyof typeof this.errors) {
+      this.errors[field] = false
+    },
+    async handleCreate(): Promise<void> {
       if (!this.validateForm()) return
 
       try {
@@ -95,7 +98,6 @@ export default {
 
         this.$router.push('/login')
       } catch (err) {
-        alert('Erro ao criar conta. Tente novamente mais tarde.')
         console.error(err)
       }
     },

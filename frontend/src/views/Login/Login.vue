@@ -8,11 +8,12 @@
         <label class="login__label" for="username">Usuário</label>
         <input
           v-model="username"
+          :class="{ 'login__input--error': errors.username }"
           class="login__input"
           type="text"
           id="username"
           placeholder="Digite seu usuário"
-          required
+          @input="clearError('username')"
         />
       </div>
 
@@ -20,11 +21,12 @@
         <label class="login__label" for="password">Senha</label>
         <input
           v-model="password"
+          :class="{ 'login__input--error': errors.password }"
           class="login__input"
           type="password"
           id="password"
           placeholder="Digite sua senha"
-          required
+          @input="clearError('password')"
         />
       </div>
 
@@ -37,53 +39,56 @@
   </main>
 </template>
 
-<script>
-import Axios from 'axios';
+<script lang="ts">
+import Axios from 'axios'
 import { API_BASE_URL } from '@/constants/endpoints'
 
 export default {
-  data() {
+  data(): {
+    username: string
+    password: string
+    errors: { username: boolean; password: boolean }
+  } {
     return {
       username: '',
       password: '',
-    };
+      errors: {
+        username: false,
+        password: false,
+      },
+    }
   },
   methods: {
-    validateForm() {
-      if (!this.username.trim() || !this.password.trim()) {
-        alert('Por favor, preencha todos os campos!');
-        return false;
-      }
-
-      if (this.password.length < 6) {
-        alert('A senha deve ter pelo menos 6 caracteres!');
-        return false;
-      }
-
-      return true;
+    validateForm(): boolean {
+      this.errors.username = !this.username.trim()
+      this.errors.password = this.password.length < 6
+      return !this.errors.username && !this.errors.password
     },
 
-    async handleLogin() {
-      if (!this.validateForm()) return;
+    clearError(field: 'username' | 'password') {
+      this.errors[field] = false
+    },
+    async handleLogin(): Promise<void> {
+      if (!this.validateForm()) return
 
       try {
         const formData = new FormData()
         formData.append('username', this.username)
         formData.append('password', this.password)
 
-        const response = await Axios.post(`${API_BASE_URL}/login`, formData, {
+        await Axios.post(`${API_BASE_URL}/login`, formData, {
           withCredentials: true,
-        });
+        })
 
-        alert('Login bem-sucedido:');
+        alert('Login bem-sucedido')
         // this.$router.push('/home');
       } catch (error) {
-        alert('Erro ao fazer login. Verifique suas credenciais.');
-        console.error('Erro ao fazer login:', error.response?.data || error.message);
+        alert('Erro ao fazer login. Verifique suas credenciais.')
+        console.error('Erro ao fazer login:', error)
       }
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
