@@ -100,7 +100,7 @@ export default {
           withCredentials: true,
         })
 
-        this.showToast('Login bem-sucedido!', '#ff597b')
+        this.showToast('Login bem-sucedido!', '#28a745')
 
       } catch (error) {
         this.showToast('Erro ao fazer login. Verifique suas credenciais.', 'red')
