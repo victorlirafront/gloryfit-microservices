@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     strict: true
   },
   css: [
-    '~/assets/main.css',
+    '~/src/assets/main.css',
   ],
   modules: ['@pinia/nuxt'],
   compatibilityDate: '2025-03-01'

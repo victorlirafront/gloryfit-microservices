@@ -1,13 +1,14 @@
 <template>
   <AppHeader />
   <HomeView />
-  <AppFooter />
+  <!-- <AppFooter /> -->
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { title } from 'process';
 import HomeView from '~/src/views/home/home.vue';
 import AppHeader from '~/src/components/header/header.vue';
-import AppFooter from '~/src/components/footer/footer.vue';
+// import AppFooter from '~/src/components/footer/footer.vue';
 
 definePageMeta({
   title: 'Página Inicial',

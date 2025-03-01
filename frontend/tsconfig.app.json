@@ -12,7 +12,8 @@
     "strict": true,
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "~/*": ["*"]  // Adicionando o alias "~" para garantir que ambos funcionem
     }
   }
 }
