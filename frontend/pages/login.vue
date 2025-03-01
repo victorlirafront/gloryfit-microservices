@@ -4,7 +4,7 @@
   <AppFooter />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Login from '../src/views/login/Login.vue'
 
 definePageMeta({

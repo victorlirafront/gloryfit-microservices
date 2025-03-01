@@ -4,7 +4,7 @@
   <AppFooter />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import SingUp from '../src/views/signup/SignUp.vue'
 
 definePageMeta({
