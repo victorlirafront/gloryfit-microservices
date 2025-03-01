@@ -10,10 +10,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",  // Define o diretório base para o TypeScript
     "paths": {
-      "@/*": ["*"],
-      "~/*": ["*"]  // Adicionando o alias "~" para garantir que ambos funcionem
+      "@/*": ["src/*"],  // Alias para src dentro do frontend
+      "~/*": ["src/*"]   // Se você usa ~ como alias também
     }
   }
 }
