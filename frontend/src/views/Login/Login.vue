@@ -42,6 +42,7 @@
 <script lang="ts">
 import Axios from 'axios'
 import { API_BASE_URL } from '@/constants/endpoints'
+import Toastify from 'toastify-js'
 
 export default {
   data(): {
@@ -68,6 +69,25 @@ export default {
     clearError(field: 'username' | 'password') {
       this.errors[field] = false
     },
+
+    showToast(message: string, backgroundColor: string): void {
+      Toastify({
+        text: message,
+        duration: 3000,
+        gravity: 'top',
+        position: 'center',
+        style: {
+          fontSize: '14px',
+          background: backgroundColor,
+          color: '#fff',
+          fontWeight: 'bold',
+          marginTop: '100px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+          borderRadius: '4px'
+        },
+      }).showToast()
+    },
+
     async handleLogin(): Promise<void> {
       if (!this.validateForm()) return
 
@@ -80,10 +100,10 @@ export default {
           withCredentials: true,
         })
 
-        alert('Login bem-sucedido')
-        // this.$router.push('/home');
+        this.showToast('Login bem-sucedido!', '#28a745')
+
       } catch (error) {
-        alert('Erro ao fazer login. Verifique suas credenciais.')
+        this.showToast('Erro ao fazer login. Verifique suas credenciais.', 'red')
         console.error('Erro ao fazer login:', error)
       }
     },
