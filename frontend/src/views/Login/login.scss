@@ -23,6 +23,7 @@
     font-weight: 700;
     text-align: center;
   }
+
   &__title-2 {
     font-size: 14px;
     font-weight: 400;
@@ -58,18 +59,22 @@
     &:focus {
       border-color: #007bff;
     }
-  }
 
+    &--error {
+      border-color: #ff4d4d;
+      background-color: #ffe6e6;
+    }  
+  }
+  
   &__submit {
     color: #fff;
     background-color: #a82472;
     border-color: #a82472;
     padding: 10px;
-    padding: 5px;
     cursor: pointer;
   }
 
-  &__ou-text{
+  &__ou-text {
     text-align: center;
     padding: 10px;
   }
