@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCartStore } from '@/stores/cart'
+import { useCartStore } from '../../stores/cart'
 import products from '../../data/mock_products.json'
 import { calculateProductAvailability } from '@/utils/products'
 
@@ -29,3 +29,9 @@ const productsWithAvailability = calculateProductAvailability(products)
     </div>
   </main>
 </template>
+
+
+<style scoped lang="scss">
+@use './home.scss' as *;
+</style>
+

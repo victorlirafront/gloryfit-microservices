@@ -5,16 +5,22 @@ import { calculateProductAvailability } from '@/utils/products'
 
 export const useCartStore = defineStore('cart', {
   state: () => {
-    const storedCartItems = localStorage.getItem('cartItems')
-    const cartItems: Product[] = storedCartItems ? JSON.parse(storedCartItems) : []
-
     return {
-      cartItems,
+      cartItems: [],
       products,
       quantity: 1,
     }
   },
   actions: {
+    initializeCart() {
+      if (process.client) {
+        const storedCartItems = localStorage.getItem('cartItems')
+        if (storedCartItems) {
+          this.cartItems = JSON.parse(storedCartItems)
+        }
+      }
+    },
+
     addToCart(productId: number) {
       const product = this.products.find((item) => item.id === productId)
 
@@ -66,7 +72,9 @@ export const useCartStore = defineStore('cart', {
     },
 
     saveToLocalStorage() {
-      localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+      if (process.client) {
+        localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+      }
     },
   },
 })

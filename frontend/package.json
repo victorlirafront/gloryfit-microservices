@@ -4,28 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "test": "vitest",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "test": "vitest"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.0",
+    "@pinia/nuxt": "^0.10.1",
     "axios": "^1.8.1",
+    "nuxt": "^3.15.4",
     "pinia": "^2.3.1",
-    "toastify-js": "^1.12.0",
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.13.8",
     "@types/toastify-js": "^1.12.3",
-    "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "@vitest/ui": "^3.0.7",
     "@vue/eslint-config-prettier": "^10.1.0",
@@ -41,9 +37,7 @@
     "prettier": "^3.3.3",
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",
-    "tailwindcss": "^4.0.0",
     "typescript": "~5.6.3",
-    "vite": "^5.4.10",
     "vite-plugin-vue-devtools": "^7.5.4",
     "vitest": "^3.0.7",
     "vue-tsc": "^2.1.10"
