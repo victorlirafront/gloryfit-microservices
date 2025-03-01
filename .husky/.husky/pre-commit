@@ -1,3 +1,0 @@
-npx --no-install lint-staged
-
-# If I apply this commit it will....
