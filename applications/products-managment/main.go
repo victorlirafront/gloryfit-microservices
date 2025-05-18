@@ -1,5 +1,0 @@
-package productsManagment
-
-func main() {
-
-}

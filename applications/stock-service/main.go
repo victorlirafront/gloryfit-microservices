@@ -1,5 +1,0 @@
-package stockService
-
-func main() {
-
-}
